@@ -6,7 +6,7 @@ app = Flask(__name__)
 api = Api(app)
 
 # with strict_slashes=False,flask recognize /todos and /todos/ as the same
-api.add_resource(TodoResources, "/todos", "/todos/<todo_id>", strict_slashes=False)
+api.add_resource(TodoResources, "/todos", "/todos/<int:todo_id>", strict_slashes=False)
 
 
 @app.route("/")

@@ -38,6 +38,18 @@ class Todo(Base, SerializerMixin):
     def __repr__(self):
         return f"<Todo(id={self.id}, title='{self.title}', is_completed='{self.is_completed}')>"
 
+    def serialize_to_json(self):
+        return {
+            "id": self.id,
+            "userId": self.userId,
+            "title": self.title,
+            "todo_description": self.todo_description,
+            "is_completed": self.is_completed,
+            "due_date": self.due_date,
+            "created_at": self.created_at,
+            "updated_at": self.updated_at,
+        }
+
 
 # Base.metadata.create_all(bind=engine)
 Session = sessionmaker(bind=engine)
